@@ -1,5 +1,3 @@
-import time
-import json
 import asyncio
 import urllib.parse
 
@@ -36,34 +34,9 @@ def create_chunks(targets):
 	return chunks
 
 
-async def get_response(session, url, retries=2):
-	for retry in range(retries, 0, -1):
-		await asyncio.sleep(1.1337)
-		async with session.get(url) as response:
-			try:
-				html = await response.text()
-				return response.url, html, response.headers
-			except Exception as e:
-				pass
-
-	return
-
-
-async def get_json(session, url, retries=2):
-	for retry in range(retries, 0, -1):
-		await asyncio.sleep(0.5)
-		async with session.get(url) as response:
-			try:
-				return await response.json()
-			except Exception as e:
-				pass
-
-	return None
-
-
 async def make_request(session, url, retries=1):
 	for retry in range(retries, 0, -1):
-		await asyncio.sleep(0.1337)
+		await asyncio.sleep(0.41337)
 		try:
 			async with session.get(url) as response:
 				try:
